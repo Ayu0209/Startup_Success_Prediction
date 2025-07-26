@@ -86,11 +86,14 @@ Startup_Success_Prediction/
 - 💾 Save Trained Model using Pickle  
 - 🌐 Streamlit App for Online Prediction  
 
----
+```
 
+---
 ## 🌐 Streamlit Web App
 
-The Streamlit app provides an interactive form for online predictions.
+The Streamlit app provides a **multi-page, interactive dashboard** to explore startup data, visualize trends, and make predictions using a trained machine learning model.
+
+---
 
 ### ▶️ To Run Locally:
 
@@ -100,6 +103,54 @@ streamlit run app.py
 ```
 
 ---
+
+## 📊 Streamlit Dashboard Overview
+
+This interactive **3-page Streamlit dashboard** presents a complete view of startup success predictions using machine learning insights, business metrics, and industry trends.
+
+---
+
+### 🔹 Page 1: **Startup Overview & Success Analysis**
+**Purpose:** High-level summary of the startup success landscape.  
+**Key Features:**
+- 📌 KPI Cards: Total Startups, Avg. Funding, Avg. Valuation, Total Acquisitions
+- 🍩 Donut Chart: Distribution of predicted success categories
+- 📊 Bar Chart: Funding Stage vs Predicted Success
+- 🌲 Treemap: Industry-wise performance
+- 🎯 Dynamic Filters: Country, Industry, and Funding Stage
+
+---
+
+### 🔹 Page 2: **Startup Profile & Geography**
+**Purpose:** Deep dive into startup characteristics, global distribution, and financial indicators.  
+**Key Features:**
+- 🗺️ Geo Map: Country-wise startup distribution
+- 🏭 Clustered Bar Chart: Industry-wise funding and count
+- 🎯 Scatter Plot: Startup Age vs Valuation (colored by success level)
+- 🔵 Bubble Chart: Employees, Revenue, Valuation correlation
+- 🔎 Interactive Filters: Filter by geography and funding stage
+
+---
+
+### 🔹 Page 3: **Model Insights & Drill-Down**
+**Purpose:** Understand ML model behavior and explore detailed predictions.  
+**Key Features:**
+- 📊 Bar Chart: Top feature importances influencing predictions
+- 📋 Data Table: Scrollable, filterable view of the prediction dataset
+- 🔍 Drillthrough: Row-level exploration of individual startup records
+
+---
+
+### ✅ Outcome
+
+This dashboard empowers:
+
+- 💡 **Founders** to assess where their startup stands  
+- 💰 **Investors** to identify high-potential opportunities  
+- 📊 **Analysts** to explore patterns and success drivers  
+
+It serves as an accessible interface for real-time exploration, data filtering, and model-backed predictive insights in the startup ecosystem.
+
 
 ## 🔧 Installation Guide
 
