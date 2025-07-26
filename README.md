@@ -1,171 +1,172 @@
-#🚀 Startup Success Prediction Project
-Welcome to the Startup Success Prediction repository!
-This project leverages machine learning and data visualization to predict the success category of startups based on key business and operational features.
+# 🚀 Startup Success Prediction Project
 
-#🧭 Table of Contents
-📌 Problem Statement
-🎯 Business Goals
-🗂️ Project Structure
-📊 Dataset Overview
-🔁 Workflow Summary
-💡 Key Features
-▶️ Run the Streamlit App
+Welcome to the **Startup Success Prediction** project! This repository showcases a full machine learning pipeline to predict the success category of startups using structured data and features.
 
+---
 
-🔧 Installation & Requirements
+## 📌 Problem Statement
 
-🧼 .gitignore Highlights
+In today’s competitive business landscape, understanding the key drivers of startup success is essential. This project focuses on predicting whether a startup will have **Low**, **Medium**, or **High** success using machine learning techniques.
 
-🔮 Future Scope
+---
 
-🙌 Acknowledgements
+## 🎯 Business Objective
 
-📬 Contact
+- Identify the factors contributing to startup success.  
+- Classify startups into success categories.  
+- Empower stakeholders to make informed investment and strategy decisions.
 
-📌 Problem Statement
-Predicting startup success is a crucial challenge in today's fast-moving tech and investment landscape.
-By using historical startup data, this project aims to build a predictive model to classify startups into:
+---
 
-✅ Low
-✅ Medium
-✅ High success categories.
+## 🔍 Dataset Overview
 
-🎯 Business Goals
-Analyze and visualize startup patterns and performance.
+- **Source:** Kaggle  
+- **Filename:** `global_startup_success_dataset.csv`  
+- **Target Variable:** `Success_Category` (Low, Medium, High)
 
-Build a model to assist investors & founders with risk assessment.
+### 🔑 Key Features:
 
-Enable offline and real-time predictions via:
+- Total Funding  
+- Revenue  
+- Valuation  
+- Customer Base  
+- Country, Industry  
+- Funding Stage  
+- Social Media Metrics
 
-🖥️ Python Scripts
+---
 
-🌐 Streamlit Web App
+## 🧱 Project Architecture
 
-📊 Power BI Visual Dashboard
-
-🗂️ Project Structure
-bash
-Copy
-Edit
+```bash
 Startup_Success_Prediction/
 │
-├── data/                     📁 Input & Output CSVs
+├── data/                       # Input & output datasets
 │   ├── global_startup_success_dataset.csv
 │   ├── Final-startup_success_predictions.csv
 │   ├── startup_predictions-offline.csv
 │   └── feature_importance.csv
 │
-├── model/                    📁 Trained Models
+├── model/                      # Trained model files
 │   ├── best_startup_model.pkl
 │   └── input_columns.pkl
 │
-├── dashboard/                📁 Power BI Dashboard
+├── dashboard/                  # Power BI dashboard file
 │   └── startup dashboard.pbix
 │
-├── streamlit_app/            🌐 Streamlit Frontend
+├── streamlit_app/              # Web app interface
 │   ├── app.py
 │   └── .streamlit/config.toml
 │
-├── notebooks/                📒 Jupyter Notebooks
+├── notebooks/                  # Jupyter notebook
 │   └── startup.ipynb
 │
-├── offline predict.py        🖥️ Script for offline prediction
-├── requirements.txt          📄 Dependency list
-├── .gitignore                🚫 Ignore rules for Git
-└── README.md                 📘 Project overview (this file!)
-📊 Dataset Overview
-📁 global_startup_success_dataset.csv
+├── offline predict.py          # Script for batch prediction
+├── requirements.txt            # Project dependencies
+├── .gitignore                  # Ignored files
+└── README.md                   # Project documentation
+```
 
-Source: Kaggle
+---
 
-Features include:
+## 🧪 Tools & Technologies Used
 
-💸 Funding, Revenue, Valuation
+| Category           | Tools/Libraries                        |
+|-------------------|----------------------------------------|
+| Data Manipulation | Pandas, NumPy                          |
+| Visualization     | Matplotlib, Seaborn, Power BI          |
+| Machine Learning  | Scikit-learn, Random Forest, SVM, etc. |
+| Deployment        | Streamlit                              |
+| Model Persistence | Pickle, Joblib                         |
 
-🌐 Website Hits, Social Media Presence
+---
 
-🌍 Country, Industry, Funding Stage
+## 🔁 End-to-End Workflow
 
-🎯 Target: Success Category (Low, Medium, High)
+- 📂 Data Preprocessing and Cleaning  
+- 📊 Exploratory Data Analysis (EDA)  
+- ⚙️ Feature Engineering  
+- 🧠 Model Training and Evaluation  
+- 💾 Save Trained Model using Pickle  
+- 🌐 Streamlit App for Online Prediction  
+- 📈 Power BI Dashboard for Visualization  
 
-🔁 Workflow Summary
-📦 Data Cleaning & Preprocessing (startup.ipynb)
+---
 
-📊 EDA (Exploratory Data Analysis)
+## 📊 Power BI Dashboard
 
-⚙️ Model Training: Random Forest, SVM, Logistic Regression
+Power BI provides dynamic and filterable dashboards to interactively explore the predictions:
 
-💾 Model Save: best_startup_model.pkl + input_columns.pkl
+- Industry-wise success distribution  
+- Country-wise startup funding analysis  
+- Key metrics like revenue, customer base, and success impact  
 
-🧪 Offline Prediction: Run via offline predict.py
+📌 Open `startup dashboard.pbix` in Power BI Desktop.
 
-🌐 Streamlit Web App: For interactive prediction
+---
 
-📈 Power BI Dashboard: Visual insights for decision-making
+## 🌐 Streamlit Web App
 
-💡 Key Features
-✨ End-to-End ML Pipeline
-🌲 Random Forest Classifier (Accuracy: ~85%)
-📤 Offline batch prediction (CSV input/output)
-🖥️ Interactive Streamlit Web App
-📉 Professional Power BI Dashboard
-🎨 Custom theming with .streamlit/config.toml
+The Streamlit app provides an interactive form for online predictions.
 
-▶️ Run the Streamlit App
-bash
-Copy
-Edit
+### ▶️ To Run Locally:
+
+```bash
 cd streamlit_app
 streamlit run app.py
-📈 Power BI Dashboard
-Open startup dashboard.pbix in Power BI Desktop.
+```
 
-View:
+---
 
-🌍 Country-wise success patterns
+## 🔧 Installation Guide
 
-📊 Feature importance
+### 🛠️ Install Requirements:
 
-🔍 Interactive filters (Industry, Stage, Region)
-
-🔧 Installation & Requirements
-Install required libraries:
-
-bash
-Copy
-Edit
+```bash
 pip install -r requirements.txt
-Main Libraries Used:
+```
 
-pandas, numpy, scikit-learn
+**Dependencies include:**
 
-matplotlib, seaborn
+- pandas, numpy  
+- scikit-learn  
+- matplotlib, seaborn  
+- streamlit  
+- pickle, joblib
 
-streamlit, joblib, pickle
+---
 
-🧼 .gitignore Highlights
-bash
-Copy
-Edit
+## 🧼 .gitignore Sample
+
+```text
 *.pkl
 *.pbix
 __pycache__/
 .ipynb_checkpoints/
 .env
 .DS_Store
-🔮 Future Scope
-Integrate live startup data from APIs
+```
 
-Add Docker for containerized deployment
+---
 
-Auto ML tuning & retraining pipeline
+## 🔮 Future Enhancements
 
-Publish app to HuggingFace Spaces or Streamlit Cloud
+- Build a live data ingestion pipeline  
+- Deploy on Streamlit Cloud or HuggingFace Spaces  
+- Automate retraining with newer data  
 
-🙌 Acknowledgements
-📊 Kaggle for the dataset
+---
 
-💻 Streamlit for frontend
+## 🙋‍♀️ About Me
 
-📉 Microsoft Power BI for dashboarding
+**👩‍💻 Ayushi Kedia**  
+📧 Email: [ayushikedia0209@gmail.com](mailto:ayushikedia0209@gmail.com)  
+🔗 GitHub: [@Ayu0209](https://github.com/Ayu0209)
 
+---
+
+## ⭐ Show Some ❤️
+
+If you liked this project, please give it a ⭐ on GitHub!
+
+Thank you for visiting! 🎉
