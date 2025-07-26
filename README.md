@@ -87,7 +87,7 @@ Startup_Success_Prediction/
 - 🌐 Streamlit App for Online Prediction  
 
 ```
-
+---
 ---
 ## 🌐 Streamlit Web App
 
