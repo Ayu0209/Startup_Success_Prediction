@@ -25,8 +25,6 @@ Predict whether a startup will be **Low**, **Medium**, or **High** success based
 | 📁 Dataset        | [Global Startup Success Dataset (Kaggle)](https://www.kaggle.com/) |
 | 🛠️ Techniques     | EDA, Label Encoding, Feature Importance, Model Training |
 | 🤖 Models Used    | Logistic Regression, Random Forest, SVM, Naive Bayes |
-| 📈 Dashboard Tool | Power BI |
-| 🖥 Deployment     | Offline Prediction Script / Streamlit-ready |
 
 ---
 
