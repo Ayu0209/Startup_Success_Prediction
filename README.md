@@ -1,6 +1,6 @@
 # 🚀 Startup Success Prediction Project
 
-Welcome to the **Startup Success Prediction** project! This repository showcases a full machine learning pipeline to predict the success category of startups using structured data and features.
+Welcome to the **Startup Success Prediction** project! This repository uses data analytics and ML concepts and showcases a machine learning pipeline to predict the success category of startups using structured data and features.
 
 ---
 
@@ -32,7 +32,6 @@ In today’s competitive business landscape, understanding the key drivers of st
 - Customer Base  
 - Country, Industry  
 - Funding Stage  
-- Social Media Metrics
 
 ---
 
@@ -50,13 +49,10 @@ Startup_Success_Prediction/
 ├── model/                      # Trained model files
 │   ├── best_startup_model.pkl
 │   └── input_columns.pkl
-│
-├── dashboard/                  # Power BI dashboard file
-│   └── startup dashboard.pbix
+|   └── label_encoder.pkl
 │
 ├── streamlit_app/              # Web app interface
 │   ├── app.py
-│   └── .streamlit/config.toml
 │
 ├── notebooks/                  # Jupyter notebook
 │   └── startup.ipynb
@@ -74,7 +70,7 @@ Startup_Success_Prediction/
 | Category           | Tools/Libraries                        |
 |-------------------|----------------------------------------|
 | Data Manipulation | Pandas, NumPy                          |
-| Visualization     | Matplotlib, Seaborn, Power BI          |
+| Visualization     | Matplotlib, Seaborn                    |
 | Machine Learning  | Scikit-learn, Random Forest, SVM, etc. |
 | Deployment        | Streamlit                              |
 | Model Persistence | Pickle, Joblib                         |
@@ -89,19 +85,6 @@ Startup_Success_Prediction/
 - 🧠 Model Training and Evaluation  
 - 💾 Save Trained Model using Pickle  
 - 🌐 Streamlit App for Online Prediction  
-- 📈 Power BI Dashboard for Visualization  
-
----
-
-## 📊 Power BI Dashboard
-
-Power BI provides dynamic and filterable dashboards to interactively explore the predictions:
-
-- Industry-wise success distribution  
-- Country-wise startup funding analysis  
-- Key metrics like revenue, customer base, and success impact  
-
-📌 Open `startup dashboard.pbix` in Power BI Desktop.
 
 ---
 
