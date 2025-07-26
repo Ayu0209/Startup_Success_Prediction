@@ -86,9 +86,8 @@ Startup_Success_Prediction/
 - 💾 Save Trained Model using Pickle  
 - 🌐 Streamlit App for Online Prediction  
 
-```
 ---
----
+
 ## 🌐 Streamlit Web App
 
 The Streamlit app provides a **multi-page, interactive dashboard** to explore startup data, visualize trends, and make predictions using a trained machine learning model.
