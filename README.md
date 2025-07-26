@@ -30,6 +30,7 @@ Predict whether a startup will be **Low**, **Medium**, or **High** success based
 
 ## 📁 Folder Structure
 
+```bash
 Startup_Success_Prediction/
 ├── 📁 data/                     # Cleaned and raw datasets
 │   ├── global_startup_success_dataset.csv
