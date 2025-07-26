@@ -1,12 +1,37 @@
 # 🚀 Startup Success Prediction using Public Data
 
-This project uses machine learning models to predict the **success category** (Low, Medium, High) of a startup based on key business and funding factors. It includes complete steps from data cleaning to model deployment, as well as an interactive **Power BI dashboard**.
+<div align="center">
+  <img src="https://github.com/Ayu0209/Startup_Success_Prediction/assets/your-banner-path/banner.png" alt="Startup Success Prediction" width="800"/>
+</div>
+
+<h2 align="center">📊 Startup Success Prediction Using Machine Learning</h2>
+
+<p align="center">
+  A full end-to-end machine learning project to predict the success level of startups using classification models.
+</p>
 
 ---
 
-## 📂 Project Structure
+## 🧠 Objective
 
-```bash
+Predict whether a startup will be **Low**, **Medium**, or **High** success based on its features like industry, location, funding stage, and more.
+
+---
+
+## 🗂️ Project Overview
+
+| Area              | Details |
+|-------------------|---------|
+| 📁 Dataset        | [Global Startup Success Dataset (Kaggle)](https://www.kaggle.com/) |
+| 🛠️ Techniques     | EDA, Label Encoding, Feature Importance, Model Training |
+| 🤖 Models Used    | Logistic Regression, Random Forest, SVM, Naive Bayes |
+| 📈 Dashboard Tool | Power BI |
+| 🖥 Deployment     | Offline Prediction Script / Streamlit-ready |
+
+---
+
+## 📁 Folder Structure
+
 Startup_Success_Prediction/
 ├── 📁 data/                     # Cleaned and raw datasets
 │   ├── global_startup_success_dataset.csv
