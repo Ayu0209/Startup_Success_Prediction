@@ -50,6 +50,7 @@ Startup_Success_Prediction/
 │   ├── best_startup_model.pkl
 │   └── input_columns.pkl
 |   └── label_encoder.pkl
+|   └── scaler.pkl
 │
 ├── streamlit_app/              # Web app interface
 │   ├── app.py
