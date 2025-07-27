@@ -2,15 +2,27 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 from streamlit_option_menu import option_menu
+import joblib
+import pickle
+import os
 
 # Page configuration
 st.set_page_config(page_title="Startup Dashboard", layout="wide")
 
+# Load model, scaler, and input columns once
+try:
+    model = pickle.load(open("best_startup_model.pkl", "rb"))
+    scaler = pickle.load(open("scaler.pkl", "rb"))
+    input_columns = joblib.load("input_columns.pkl")
+except Exception as e:
+    st.error(f"Model loading failed: {e}")
+    st.stop()
+
 # Sidebar navigation
 with st.sidebar:
     page = option_menu("Startup Dashboard",
-                       ["Overview", "Profile & Geography", "Model Insights"],
-                       icons=["house", "globe", "bar-chart-line"],
+                       ["Overview", "Profile & Geography", "Model Insights", "Predict Success"],
+                       icons=["house", "globe", "bar-chart-line", "graph-up-arrow"],
                        menu_icon="cast", default_index=0)
 
 # Load CSV files
@@ -20,7 +32,6 @@ def load_data():
         df_main = pd.read_csv("startup_predictions-offline.csv")
         df_geo = pd.read_csv("Final-startup_success_predictions.csv")
         df_imp = pd.read_csv("feature_importance.csv")
-        
         return df_main, df_geo, df_imp
     except FileNotFoundError as e:
         st.error(f"File not found: {e}")
@@ -39,7 +50,6 @@ for col in ["Country", "Industry", "Funding Stage"]:
     df = reverse_one_hot(df, col)
     df_geo = reverse_one_hot(df_geo, col)
 
-# Handle Startup Age and Predicted Category
 if "Startup Age" not in df_geo.columns and "Founded Year" in df_geo.columns:
     df_geo["Startup Age"] = 2025 - df_geo["Founded Year"]
 
@@ -96,9 +106,9 @@ if page == "Overview":
                                   path=[px.Constant("All"), "Industry", "Predicted Category"],
                                   values="Total Funding ($M)", title="Treemap of Industry Success")
             st.plotly_chart(fig_tree, use_container_width=True)
+    pass
 
 # ---------------- Profile & Geography Page ----------------
-
 elif page == "Profile & Geography":
     st.title("🌍 Startup Profile & Geography")
     df_filtered_geo = df_geo.copy()
@@ -149,6 +159,8 @@ elif page == "Profile & Geography":
                                      title="Startup Age vs Valuation")
             st.plotly_chart(fig_scatter, use_container_width=True)
 
+    pass
+
 # ---------------- Model Insights Page ----------------
 elif page == "Model Insights":
     st.title("📊 Model Insights & Feature Importance")
@@ -162,3 +174,118 @@ elif page == "Model Insights":
     st.subheader("📋 Complete Dataset (Offline Predictions)")
     with st.expander("View Full Dataset"):
         st.dataframe(df)
+    pass
+
+# ---------------- Predict Success Page ----------------
+elif page == "Predict Success":
+    st.title("🌟 Startup Growth Success Score Predictor")
+    st.markdown("Enter startup details to get a predicted success category.")
+
+    # ✅ Initialize session state
+    if "prediction_result" not in st.session_state:
+        st.session_state.prediction_result = None
+
+    # ✅ Create form for user input
+    with st.form("predict_form"):
+        c1, c2 = st.columns(2)
+
+        # ✅ Left Column Inputs
+        with c1:
+            funding = st.number_input("Total Funding ($M)", min_value=0.0, key="funding")
+            revenue = st.number_input("Annual Revenue ($M)", min_value=0.0, key="revenue")
+            valuation = st.number_input("Valuation ($B)", min_value=0.0, key="valuation")
+            employees = st.number_input("Number of Employees", min_value=1, key="employees")
+            age = st.number_input("Startup Age", min_value=0, key="age")
+            log_revenue = st.number_input("Log Revenue", min_value=0.0, max_value=10.0, step=0.1, key="log_revenue")
+            customer_base = st.number_input("Customer Base (Millions)", min_value=0.0, step=0.1, key="customer_base")
+
+        # ✅ Right Column Inputs
+        with c2:
+            social_followers = st.number_input("Social Media Followers", min_value=0, key="social_followers")
+            tech_stack = st.number_input("Tech Stack Count", min_value=0, key="tech_stack")
+            country = st.selectbox("Country", ["USA", "India", "UK", "Germany", "France", "China", "Japan", "Brazil", "Canada", "Other"], key="country")
+            industry = st.selectbox("Industry", ["FinTech", "HealthTech", "EdTech", "E-commerce", "FoodTech", "Gaming", "Tech", "Logistics", "Energy", "Other"], key="industry")
+            stage = st.selectbox("Funding Stage", ["Seed", "Series A", "Series B", "Series C"], key="stage")
+            acquired = st.selectbox("Acquired?", ["No", "Yes"], key="acquired")
+            ipo = st.selectbox("IPO?", ["No", "Yes"], key="ipo")
+
+        # ✅ Submit and Reset buttons
+        col_submit, col_reset = st.columns([1, 1])
+        with col_submit:
+            submit = st.form_submit_button("🔮 Predict")
+        with col_reset:
+            reset = st.form_submit_button("🔁 Reset Form")
+
+    # ✅ Reset logic — clears session and reruns app
+    if reset:
+        st.session_state.clear()
+        st.rerun()
+
+    # ✅ Prediction logic
+    if submit:
+        data = {
+            "Total Funding ($M)": funding,
+            "Annual Revenue ($M)": revenue,
+            "Valuation ($B)": valuation,
+            "Number of Employees": employees,
+            "Startup Age": age,
+            "Acquired?": 1 if acquired == "Yes" else 0,
+            "IPO?": 1 if ipo == "Yes" else 0,
+            "Log Revenue": log_revenue,
+            "Customer Base (Millions)": customer_base,
+            "Social Media Followers": social_followers,
+            "Tech Stack Count": tech_stack,
+        }
+
+        # ✅ One-hot encoding
+        for col in input_columns:
+            if col.startswith("Country_") and col == f"Country_{country}":
+                data[col] = 1
+            elif col.startswith("Industry_") and col == f"Industry_{industry}":
+                data[col] = 1
+            elif col.startswith("Funding Stage_") and col == f"Funding Stage_{stage}":
+                data[col] = 1
+            elif col not in data:
+                data[col] = 0
+
+        input_df = pd.DataFrame([data])
+        input_df = input_df.reindex(columns=input_columns, fill_value=0)
+
+        scaled = scaler.transform(input_df)
+        pred = model.predict(scaled)[0]
+        proba = model.predict_proba(scaled)[0]
+        pred_label = {0: "Low", 1: "Medium", 2: "High"}[pred]
+
+        st.session_state.prediction_result = {
+            "label": pred_label,
+            "proba": proba,
+            "input_df": input_df
+        }
+
+    # ✅ Display Results
+    if st.session_state.prediction_result:
+        pred_label = st.session_state.prediction_result["label"]
+        proba = st.session_state.prediction_result["proba"]
+        input_df = st.session_state.prediction_result["input_df"]
+
+        st.success(f"🧠 Predicted Success Category: **{pred_label}**")
+        st.write(f"📊 Confidence Scores: Low: `{proba[0]:.2f}`, Medium: `{proba[1]:.2f}`, High: `{proba[2]:.2f}`")
+
+        import plotly.express as px
+        prob_df = pd.DataFrame({
+            "Category": ["Low", "Medium", "High"],
+            "Probability": proba
+        })
+        fig = px.bar(prob_df, x="Category", y="Probability", text_auto=".2f",
+                     color="Category", title="Prediction Probabilities",
+                     color_discrete_map={"Low": "red", "Medium": "orange", "High": "green"})
+        st.plotly_chart(fig, use_container_width=True)
+
+        result_df = input_df.copy()
+        result_df["Predicted Category"] = pred_label
+        result_df["Probability_Low"] = proba[0]
+        result_df["Probability_Medium"] = proba[1]
+        result_df["Probability_High"] = proba[2]
+
+        csv = result_df.to_csv(index=False).encode("utf-8")
+        st.download_button("⬇️ Download Prediction as CSV", data=csv, file_name="prediction_result.csv", mime="text/csv")
