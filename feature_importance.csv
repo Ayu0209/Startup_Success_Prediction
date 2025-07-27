@@ -1,0 +1,34 @@
+Feature,Importance
+Number of Employees,0.4969000000000001
+Annual Revenue ($M),0.08499999999999996
+Total Funding ($M),0.04490000000000004
+Customer Base (Millions),0.007800000000000007
+Valuation ($B),0.005600000000000005
+Startup Age,0.002300000000000002
+Log Revenue,0.0009000000000000008
+IPO?,0.0007000000000000006
+Acquired?,0.00040000000000000034
+Funding Stage_Series A,0.00040000000000000034
+Country_Germany,0.00030000000000000024
+Funding Stage_Seed,0.00030000000000000024
+Country_Japan,0.00020000000000000017
+Industry_FinTech,0.00020000000000000017
+Industry_Logistics,0.00010000000000000009
+Country_Brazil,0.00010000000000000009
+Funding Stage_Series B,0.00010000000000000009
+Country_UK,0.00010000000000000009
+Industry_E-commerce,0.00010000000000000009
+Industry_EdTech,0.00010000000000000009
+Industry_Energy,0.00010000000000000009
+Industry_Gaming,0.0
+Industry_Tech,0.0
+Industry_Healthcare,0.0
+Country_India,0.0
+Industry_FoodTech,0.0
+Country_USA,0.0
+Country_France,0.0
+Country_China,0.0
+Country_Canada,0.0
+Tech Stack Count,0.0
+Social Media Followers,0.0
+Funding Stage_Series C,0.0
