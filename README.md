@@ -9,6 +9,10 @@ Welcome to the **Startup Success Prediction** project! This repository uses data
 In today’s competitive business landscape, understanding the key drivers of startup success is essential. This project focuses on predicting whether a startup will have **Low**, **Medium**, or **High** success using machine learning techniques.
 
 ---
+## 🔗 Live Demo
+https://startupsuccessprediction-aczujymxdib2wdxu2fkto2.streamlit.app/
+
+---
 
 ## 🎯 Business Objective
 
