@@ -47,15 +47,6 @@ https://startupsuccessprediction-aczujymxdib2wdxu2fkto2.streamlit.app/
 - **Filename:** `global_startup_success_dataset.csv`  
 - **Target Variable:** `Success_Category` (Low, Medium, High)
 
-### 🔑 Key Features:
-
-- Total Funding  
-- Revenue  
-- Valuation  
-- Customer Base  
-- Country, Industry  
-- Funding Stage  
-
 ---
 
 ## 🧱 Project Architecture
@@ -98,16 +89,6 @@ Startup_Success_Prediction/
 - **Visualization** (Matplotlib, Seaborn, Plotly) 
 ---
 
-## 🔁 End-to-End Workflow
-
-- 📂 Data Preprocessing and Cleaning  
-- 📊 Exploratory Data Analysis (EDA)  
-- ⚙️ Feature Engineering  
-- 🧠 Model Training and Evaluation  
-- 💾 Save Trained Model using Pickle  
-- 🌐 Streamlit App for Online Prediction  
-
----
 ## 🧹 Data Cleaning & Preparation  
 - Handled missing values and categorical encoding.  
 - Standardized and scaled numerical features.  
@@ -193,8 +174,6 @@ This interactive **4-page Streamlit dashboard** presents a complete view of star
 - 🎨 User-Friendly UI: Intuitive sliders, dropdowns, and numeric fields for quick data entry.
 - 🔍 Scenario Testing: Founders, investors, or analysts can simulate different funding/revenue levels and test success probabilities.
 
-
----
 
 ---
 
