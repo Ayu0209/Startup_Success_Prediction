@@ -5,20 +5,21 @@ Welcome to the **Startup Success Prediction** project! This repository uses data
 ---
 
 ## 📑 Table of Contents  
-1. [Overview](#overview)
-2. [Live Demo](#Live Demo)
+1. [Overview](#overview)  
+2. [Live Demo](#live-demo)  
 3. [Business Problem](#business-problem)  
-4. [Dataset](#dataset)  
-5. [Tools and Technologies](#tools-and-technologies)  
-6. [Project Structure](#project-structure)  
+4. [Dataset Overview](#dataset-overview)  
+5. [Project Architecture](#project-architecture)  
+6. [Tools & Technologies Used](#tools--technologies-used)  
 7. [Data Cleaning & Preparation](#data-cleaning--preparation)  
 8. [Exploratory Data Analysis (EDA)](#exploratory-data-analysis-eda)  
 9. [Research Questions & Key Findings](#research-questions--key-findings)  
-10. [Dashboard/Model](#dashboardmodel)  
-11. [How to Run this Project?](#how-to-run-this-project)  
-12. [Results & Conclusion](#results--conclusion)  
-13. [Future Work](#future-work)  
-14. [Author & Contact](#author--contact)  
+10. [Streamlit Web App](#streamlit-web-app)  
+11. [Streamlit Dashboard Overview](#streamlit-dashboard-overview)  
+12. [How to Run this Project?](#how-to-run-this-project)  
+13. [Results & Conclusion](#results--conclusion)  
+14. [Future Work](#future-work)  
+15. [Author & Contact](#author--contact)   
 
 ---
 
